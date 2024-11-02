@@ -12,8 +12,10 @@ export const GetSumFromInput = () => {
     return <div className={'box-content'}>
         <div>
             <label>
+                {/*[(ng-model)]="value_1"  ayl framework angular, vue*/}
+
                 <input
-                    {/*[(ng-model)]="value_1"  ayl framework angular, vue*/}
+
                     onChange={(e) => {
                         setValue_1(e.target.value)
                     }}
