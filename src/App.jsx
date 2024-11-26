@@ -1,19 +1,26 @@
-import imagTest from './assets/images/banner.jpg'
-import {Inputs} from "./components/Inputs/Inputs";
 import {useState} from "react";
+import {Header} from "./components/Header/Header";
+import {Home} from "./pages/Home/Home";
+import {About} from "./pages/About/About";
+import {Contact} from "./pages/Contact/Contact";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {RouterNames} from "./routers/router";
 
 function App() {
 
-    const [showInputs, setShowInputs] = useState(false)
 
     return (
-        <div className={'G-list'}>
-            <button onClick={() => {
-                setShowInputs(!showInputs)
-            }}>Click
-            </button>
-            {showInputs ? <Inputs/> : null}
-        </div>
+        <>
+            <Header/>
+            <div>
+                <Routes>
+                    <Route path={RouterNames.HOME} element={<Home/>}/>
+                    <Route path={RouterNames.ABOUT} element={<About/>}/>
+                    <Route path={RouterNames.CONTACT} element={<Contact/>}/>
+                    <Route path={'/*'} element={<Navigate to={RouterNames.HOME}/>}></Route>
+                </Routes>
+            </div>
+        </>
     );
 }
 
